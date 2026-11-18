@@ -31,8 +31,16 @@ resource "aws_s3_object" "bucket-data" {
   key    = "mydata.txt"
 }
 
-output "name" {
+output "bucket_name" {
+  value = aws_s3_bucket.demo-bucket.bucket
+}
+
+output "random_id" {
   value = random_id.rand_id.hex
+}
+
+output "uploaded_file" {
+  value = aws_s3_object.bucket-data.key
 }
 ```
 
